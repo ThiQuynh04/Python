@@ -1,4 +1,6 @@
+from re import match
 import numpy as np
+from math import sqrt
 
 def create_random_matrix(n):
     # Tạo ma trận ngẫu nhiên với số nguyên trong khoảng 0-100
@@ -150,7 +152,7 @@ students_scores = [
 def standard_deviation(scores):
     mean = sum(scores) / len(scores)
     variance = sum((score - mean) ** 2 for score in scores) / len(scores)
-    return math.sqrt(variance)
+    return sqrt(variance)
 
 # Tính độ lệch chuẩn của điểm các môn của từng học sinh
 student_devs = []
