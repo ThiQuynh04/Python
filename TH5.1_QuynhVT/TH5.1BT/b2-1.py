@@ -1,14 +1,14 @@
 import numpy as np
 
 # Đọc dữ liệu từ file
-file_path = 'C:\\Users\\TV\\Documents\\BTTH_Python\\TH5.1_TrangTTH\\TH5.1BT\\Data_BMI.txt'
+file_path = 'C:\\Users\\Admin\\Documents\\Zalo Received Files\\PythonGit\\TH5.1_QuynhVT\\TH5.1BT\\Data_BMI.txt'
 data = np.loadtxt(file_path)
 
 # Tách chiều cao và cân nặng
 heights_cm = data[:, 0]  # Cột 1: Chiều cao (cm)
 weights_kg = data[:, 1]  # Cột 2: Cân nặng (kg)
 
-# Chuyển đổi chiều cao từ cm sang mét
+# Chuyển đổi chiều cao từ cm sang mét;
 heights_m = heights_cm / 100.0
 
 # Tính chỉ số BMI
@@ -27,6 +27,6 @@ for bmi in bmi_values:
         categories.append("Obese")
     else:
         categories.append("Extremely Obese")
-
+# in thông tin chi tiết về từng người
 for i, (height, weight, bmi, category) in enumerate(zip(heights_cm, weights_kg, bmi_values, categories)):
     print(f"Person {i+1}: Height = {height} cm, Weight = {weight} kg, BMI = {bmi:.2f}, Category = {category}")
