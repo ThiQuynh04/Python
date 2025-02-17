@@ -64,8 +64,7 @@ class ReportWindow(QMainWindow):
         conn.close()
 
     def export_csv(self):
-        options = QFileDialog.Options()
-        file_name, _ = QFileDialog.getSaveFileName(self, "Lưu file CSV", "", "CSV Files (*.csv)", options=options)
+        file_name, _ = QFileDialog.getSaveFileName(self, "Lưu file CSV", "", "CSV Files (*.csv)")
         if file_name:
             conn = self.connect_db()
             query = "SELECT * FROM users"
@@ -74,9 +73,9 @@ class ReportWindow(QMainWindow):
             conn.close()
             QMessageBox.information(self, "Thành công", "Xuất dữ liệu CSV thành công!")
 
+
     def export_excel(self):
-        options = QFileDialog.Options()
-        file_name, _ = QFileDialog.getSaveFileName(self, "Lưu file Excel", "", "Excel Files (*.xlsx)", options=options)
+        file_name, _ = QFileDialog.getSaveFileName(self, "Lưu file Excel", "", "Excel Files (*.xlsx)")
         if file_name:
             conn = self.connect_db()
             query = "SELECT * FROM users"
@@ -85,9 +84,9 @@ class ReportWindow(QMainWindow):
             conn.close()
             QMessageBox.information(self, "Thành công", "Xuất dữ liệu Excel thành công!")
 
+
     def export_pdf(self):
-        options = QFileDialog.Options()
-        file_name, _ = QFileDialog.getSaveFileName(self, "Lưu file PDF", "", "PDF Files (*.pdf)", options=options)
+        file_name, _ = QFileDialog.getSaveFileName(self, "Lưu file PDF", "", "PDF Files (*.pdf)")
         if file_name:
             conn = self.connect_db()
             cursor = conn.cursor()
@@ -97,7 +96,7 @@ class ReportWindow(QMainWindow):
 
             pdf = FPDF()
             pdf.add_page()
-            pdf.set_font("Arial", style="", size=12)
+            pdf.set_font("Arial", size=12)
             pdf.cell(200, 10, txt="Báo Cáo Người Dùng", ln=True, align='C')
 
             for user in users:

@@ -2,7 +2,6 @@ import sys
 import mysql.connector
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QMessageBox
 from main_window import MainWindow
-
 class LoginWindow(QWidget):
     def __init__(self):
         super().__init__()
